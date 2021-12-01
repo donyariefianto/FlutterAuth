@@ -1,4 +1,4 @@
-import 'package:absensi/mainscreen.dart';
+import 'package:absensi/screens/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,18 +41,20 @@ class _LauncherPageState extends State<LauncherPage> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(5)),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                  color: Colors.grey.shade200,
-                  offset: const Offset(2, 4),
-                  blurRadius: 5,
-                  spreadRadius: 2)
-            ],
-            gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xfffbb448), Color(0xfff7892b)])),
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.grey.shade200,
+                offset: const Offset(2, 4),
+                blurRadius: 5,
+                spreadRadius: 2)
+          ],
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xfffbb448), Color(0xfff7892b)],
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,

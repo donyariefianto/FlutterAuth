@@ -19,15 +19,6 @@ class CalendarPage extends StatelessWidget {
   }
 }
 
-class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.lightGreenAccent,
-    );
-  }
-}
-
 class Screen2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import './login.dart';
 import './launcher.dart';
-import './mainscreen.dart';
+import 'screens/mainscreen.dart';
 
 void main() {
   runApp(const MyApp());

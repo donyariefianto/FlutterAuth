@@ -48,23 +48,23 @@ class _LandingPageState extends State<LandingPage> {
         child: Container(
           color: Colors.white,
           child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                // RaisedButton(onPressed: () => load()),
-                Text(
-                  "Your Token : $token",
-                  style: TextStyle(fontSize: 20),
-                ),
-                const Text('Home'),
-                RaisedButton(
-                  onPressed: () => _logOut(),
-                  color: Colors.white,
-                  child: const Text('Logout', style: TextStyle(fontSize: 18)),
-                )
-              ],
-            ),
-          ),
+              // child: Column(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: <Widget>[
+              //     // RaisedButton(onPressed: () => load()),
+              //     Text(
+              //       "Your Token : $token",
+              //       style: TextStyle(fontSize: 20),
+              //     ),
+              //     const Text('Home'),
+              //     RaisedButton(
+              //       onPressed: () => _logOut(),
+              //       color: Colors.white,
+              //       child: const Text('Logout', style: TextStyle(fontSize: 18)),
+              //     )
+              //   ],
+              // ),
+              ),
         ),
       ),
     );

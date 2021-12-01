@@ -1,8 +1,11 @@
 import 'package:absensi/screens/calendar.dart';
 import 'package:absensi/screens/landing.dart';
+import 'package:absensi/screens/profilepage.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -19,25 +22,26 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: ('Beranda'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
-            label: ('Beranda'),
+            label: ('Aksi'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: ('Beranda'),
+            label: ('Akun'),
           ),
         ],
+        currentIndex: _selectedIndex,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedItemColor: Colors.amberAccent,
+        unselectedItemColor: Colors.grey.shade600,
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
