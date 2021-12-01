@@ -6,15 +6,26 @@ class LandingPage extends StatefulWidget {
   _LandingPageState createState() => _LandingPageState();
 }
 
+String token = "";
+
 class _LandingPageState extends State<LandingPage> {
   @override
   void initState() {
     super.initState();
+    load();
+  }
+
+  load() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      token = prefs.getString('token')!;
+    });
   }
 
   _logOut() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('slogin', false);
+    prefs.remove('token');
     Navigator.of(context)
         .pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
   }
@@ -29,6 +40,11 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                // RaisedButton(onPressed: () => load()),
+                Text(
+                  "Your Token : $token",
+                  style: TextStyle(fontSize: 20),
+                ),
                 const Text('Home'),
                 RaisedButton(
                   onPressed: () => _logOut(),

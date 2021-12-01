@@ -59,9 +59,7 @@ class _LauncherPageState extends State<LauncherPage> {
           children: <Widget>[
             Center(
               child: Image.asset(
-                "assets/logo.png",
-                height: 70.0,
-                width: 200.0,
+                "assets/Yellow.png",
               ),
             ),
           ],

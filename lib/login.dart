@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter/services.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -34,23 +33,27 @@ class _LoginPageState extends State<LoginPage> {
         passwordController.text;
     try {
       var res = await http.post(Uri.parse(sUrl + params));
+      print(res.statusCode);
       if (res.statusCode == 200) {
         var response = json.decode(res.body);
         print(response['access_token']);
         if (response['message'] != null) {
           prefs.setBool('slogin', true);
+          prefs.setString('token', response['access_token']);
           setState(() {
             visible = false;
           });
 
           Navigator.of(context).pushNamedAndRemoveUntil(
               '/landing', (Route<dynamic> route) => false);
-        } else {
-          setState(() {
-            visible = false;
-          });
-          _showAlertDialog(context, response['message']);
         }
+      } else {
+        var response = json.decode(res.body);
+        setState(() {
+          visible = false;
+        });
+        print(response['message']);
+        _showAlertDialog(context, response['message']);
       }
     } catch (e) {}
   }
@@ -61,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
       child: const Text('Ok'),
     );
     AlertDialog alert = AlertDialog(
-      title: const Text('Error'),
+      title: const Text('Failed'),
       content: Text(err),
       actions: [
         okButton,
@@ -104,8 +107,8 @@ class _LoginPageState extends State<LoginPage> {
                       children: <Widget>[
                         Center(
                           child: Image.asset(
-                            "assets/logo.png",
-                            height: 70.0,
+                            "assets/Yellow.png",
+                            height: 100.0,
                             width: 200.0,
                           ),
                         ),
