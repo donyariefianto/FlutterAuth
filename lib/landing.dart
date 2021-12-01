@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 class LandingPage extends StatefulWidget {
   @override
   _LandingPageState createState() => _LandingPageState();
 }
 
+const String sUrl = "http://192.168.10.112:8000/api/logout";
 String token = "";
 
 class _LandingPageState extends State<LandingPage> {
@@ -24,10 +26,19 @@ class _LandingPageState extends State<LandingPage> {
 
   _logOut() async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('slogin', false);
-    prefs.remove('token');
-    Navigator.of(context)
-        .pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+
+    try {
+      var res = await http.post(Uri.parse(sUrl), headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
+      print(res.statusCode);
+      prefs.setBool('slogin', false);
+      prefs.remove('token');
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+    } catch (e) {}
   }
 
   @override
