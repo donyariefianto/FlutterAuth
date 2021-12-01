@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final String sUrl = "http://192.168.10.112:8000/api/";
+  final String sUrl = "http://127.0.0.1:8000/api/";
 
   @override
   void initState() {

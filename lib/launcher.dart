@@ -1,6 +1,6 @@
+import 'package:absensi/mainscreen.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import './landing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './login.dart';
 
@@ -21,10 +21,10 @@ class _LauncherPageState extends State<LauncherPage> {
     bool slogin;
     slogin = prefs.getBool('slogin') ?? false;
 
-    var duration = const Duration(seconds: 3);
+    var duration = const Duration(seconds: 2);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return slogin ? LandingPage() : const LoginPage();
+        return slogin ? MainScreen() : const LoginPage();
       }));
     });
   }
@@ -59,7 +59,9 @@ class _LauncherPageState extends State<LauncherPage> {
           children: <Widget>[
             Center(
               child: Image.asset(
-                "assets/Yellow.png",
+                "assets/logo.png",
+                height: 70.0,
+                width: 200.0,
               ),
             ),
           ],

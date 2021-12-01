@@ -7,7 +7,7 @@ class LandingPage extends StatefulWidget {
   _LandingPageState createState() => _LandingPageState();
 }
 
-const String sUrl = "http://192.168.10.112:8000/api/logout";
+const String sUrl = "http://127.0.0.1:8000/api/logout";
 String token = "";
 
 class _LandingPageState extends State<LandingPage> {

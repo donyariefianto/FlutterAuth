@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './landing.dart';
 import './login.dart';
 import './launcher.dart';
+import './mainscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
         ),
         home: LauncherPage(),
         routes: <String, WidgetBuilder>{
-          '/login': (BuildContext context) => LoginPage(),
-          '/landing': (BuildContext context) => LandingPage(),
+          '/login': (BuildContext context) => const LoginPage(),
+          '/landing': (BuildContext context) => MainScreen(),
         });
   }
 }
