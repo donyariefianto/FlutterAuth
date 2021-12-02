@@ -9,7 +9,11 @@ class CalendarPage extends StatelessWidget {
         child: FlatButton(
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Screen2()));
+              context,
+              MaterialPageRoute(
+                builder: (context) => Screen2(),
+              ),
+            );
           },
           child: Text('Go to next screen'),
           color: Colors.white,

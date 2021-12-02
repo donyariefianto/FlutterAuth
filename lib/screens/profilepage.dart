@@ -9,7 +9,7 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-const String sUrl = "http://127.0.0.1:8000/api/logout";
+const String sUrl = "http://192.168.10.112:8000/api/logout";
 String token = "";
 
 class _ProfilePageState extends State<ProfilePage> {

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         home: LauncherPage(),
         routes: <String, WidgetBuilder>{
           '/login': (BuildContext context) => const LoginPage(),
-          '/landing': (BuildContext context) => MainScreen(),
+          '/landing': (BuildContext context) => const MainScreen(),
         });
   }
 }
