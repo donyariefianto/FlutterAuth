@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'location.dart';
+
 class CalendarPage extends StatelessWidget {
+  const CalendarPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,11 +15,11 @@ class CalendarPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Screen2(),
+                builder: (context) => location(),
               ),
             );
           },
-          child: Text('Go to next screen'),
+          child: const Text('Go to next screen'),
           color: Colors.white,
         ),
       ),
@@ -24,6 +28,8 @@ class CalendarPage extends StatelessWidget {
 }
 
 class Screen2 extends StatelessWidget {
+  const Screen2({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,17 +40,17 @@ class Screen2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: Text(
+              child: const Text(
                 'Screen 2',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
-              margin: EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
             ),
             FlatButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Go back'),
+              child: const Text('Go back'),
               color: Colors.white,
             ),
           ],

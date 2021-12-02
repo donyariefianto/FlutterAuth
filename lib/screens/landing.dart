@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 class LandingPage extends StatefulWidget {
+  const LandingPage({Key? key}) : super(key: key);
+
   @override
   _LandingPageState createState() => _LandingPageState();
 }
@@ -47,7 +49,7 @@ class _LandingPageState extends State<LandingPage> {
       body: SafeArea(
         child: Container(
           color: Colors.white,
-          child: Center(
+          child: const Center(
               // child: Column(
               //   mainAxisAlignment: MainAxisAlignment.center,
               //   children: <Widget>[

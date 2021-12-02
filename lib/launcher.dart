@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import './login.dart';
 
 class LauncherPage extends StatefulWidget {
+  const LauncherPage({Key? key}) : super(key: key);
+
   @override
   _LauncherPageState createState() => _LauncherPageState();
 }
@@ -24,7 +26,7 @@ class _LauncherPageState extends State<LauncherPage> {
     var duration = const Duration(seconds: 2);
     return Timer(duration, () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return slogin ? MainScreen() : const LoginPage();
+        return slogin ? const MainScreen() : const LoginPage();
       }));
     });
   }
